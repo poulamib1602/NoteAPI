@@ -12,13 +12,10 @@ const auth = (req, res, next) =>{
         else{
             res.status(401).json({message:"Unauthorized User"});
         }
-
         next();
-        
     } catch (error) {
-        console.log(error)
+        logger.error(error)
         res.status(401).json({message:"Unauthorized User"});
     }
 }
-
 module.exports = auth;
